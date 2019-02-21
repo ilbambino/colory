@@ -4,7 +4,7 @@ const random = require("canvas-sketch-util/random");
 const palettes = require("nice-color-palettes");
 
 const settings = {
-  dimensions: [2048, 3022]
+  dimensions: [2048, 2048]
 };
 
 const pointsCount = 30; // to create a grid of pointsCount x pointsCount
@@ -176,11 +176,12 @@ const sketch = () => {
   return ({ context, width, height }) => {
     context.fillStyle = "white";
     context.rect(0, 0, width, height);
-    const name = "ABCDEF";
+    const name = "A";
     const verticalCells = Math.ceil(name.length / 2);
     let x = 0,
       y = 0;
-    const cellWidth = (width - margin * 3) / 2;
+    const cellWidth =
+      name.length < 2 ? width - margin * 2 : (width - margin * 3) / 2;
     const cellHeigh = (height - margin * (verticalCells + 1)) / verticalCells;
     if (cellHeigh != cellWidth) {
       console.error(
