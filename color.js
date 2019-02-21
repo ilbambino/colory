@@ -67,7 +67,7 @@ const paintLetter = (width, height, context, letter, color) => {
 const sketch = () => {
   return ({ context, width, height }) => {
     context.fillStyle = "white";
-    context.rect(0, 0, width, height);
+    context.fillRect(0, 0, width, height);
     const name = "ABCD";
     const verticalCells = Math.ceil(name.length / 2);
     let x = 0,
@@ -81,8 +81,6 @@ const sketch = () => {
         cellWidth * verticalCells + margin * (verticalCells + 1)
       );
     }
-
-    const palette = random.pick(palettes).slice(0, 6);
 
     for (let i = 0; i < name.length; i++) {
       context.save();
